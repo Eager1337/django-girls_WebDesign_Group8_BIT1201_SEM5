@@ -1,0 +1,41 @@
+name: PHP syntax and integration
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    services:
+      mysql:
+        image: mysql:8.0
+        env:
+          MYSQL_ROOT_PASSWORD: disposable-ci-only
+          MYSQL_DATABASE: django_girls
+        ports: ['3306:3306']
+        options: >-
+          --health-cmd="mysqladmin ping -pdisposable-ci-only"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: pdo_mysql, mbstring, fileinfo
+      - name: PHP syntax
+        run: find . -name '*.php' -exec php -l {} \;
+      - name: Disposable configuration and installation
+        run: |
+          printf "<?php return ['host'=>'127.0.0.1','database'=>'django_girls','user'=>'root','password'=>'disposable-ci-only'];" > config.local.php
+          printf 'CI Admin\nci@example.test\nDisposableAdmin2026!\n' | php tools/install.php
+      - name: Integration
+        env:
+          DG_TEST_ADMIN_EMAIL: ci@example.test
+          DG_TEST_ADMIN_PASSWORD: DisposableAdmin2026!
+        run: |
+          php -S 127.0.0.1:8088 > /tmp/php-server.log 2>&1 &
+          curl --retry 5 --retry-connrefused --retry-delay 1 http://127.0.0.1:8088/index.php > /dev/null
+          python3 tests/integration.py http://127.0.0.1:8088
+          python3 tests/innovations.py http://127.0.0.1:8088
+          php tests/innovation-helpers.php

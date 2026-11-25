@@ -1,0 +1,174 @@
+[
+  {
+    "test": "Unauthenticated dashboard redirects to login",
+    "result": "PASS"
+  },
+  {
+    "test": "Invalid CSRF rejected",
+    "result": "PASS"
+  },
+  {
+    "test": "Weak password rejected",
+    "result": "PASS"
+  },
+  {
+    "test": "Registration works",
+    "result": "PASS"
+  },
+  {
+    "test": "Duplicate email rejected",
+    "result": "PASS"
+  },
+  {
+    "test": "Incorrect password rejected",
+    "result": "PASS"
+  },
+  {
+    "test": "Member login works",
+    "result": "PASS"
+  },
+  {
+    "test": "Member cannot access admin",
+    "result": "PASS"
+  },
+  {
+    "test": "Member cannot export report",
+    "result": "PASS"
+  },
+  {
+    "test": "Action CSRF enforced",
+    "result": "PASS"
+  },
+  {
+    "test": "Event registration works",
+    "result": "PASS"
+  },
+  {
+    "test": "Duplicate event rejected",
+    "result": "PASS"
+  },
+  {
+    "test": "Resource completion works",
+    "result": "PASS"
+  },
+  {
+    "test": "Resource undo works",
+    "result": "PASS"
+  },
+  {
+    "test": "Search filters resources",
+    "result": "PASS"
+  },
+  {
+    "test": "Profile update works",
+    "result": "PASS"
+  },
+  {
+    "test": "Discussion escaped",
+    "result": "PASS"
+  },
+  {
+    "test": "Reply works",
+    "result": "PASS"
+  },
+  {
+    "test": "Admin login works",
+    "result": "PASS"
+  },
+  {
+    "test": "Admin page loads",
+    "result": "PASS"
+  },
+  {
+    "test": "Analytics CSV exports",
+    "result": "PASS"
+  },
+  {
+    "test": "Role assignment works",
+    "result": "PASS"
+  },
+  {
+    "test": "Mentorship request works",
+    "result": "PASS"
+  },
+  {
+    "test": "Mentor acceptance works",
+    "result": "PASS"
+  },
+  {
+    "test": "Attendance recording works",
+    "result": "PASS"
+  },
+  {
+    "test": "Member sees attendance",
+    "result": "PASS"
+  },
+  {
+    "test": "Admin event create works",
+    "result": "PASS"
+  },
+  {
+    "test": "Event update works",
+    "result": "PASS"
+  },
+  {
+    "test": "Limited event first place works",
+    "result": "PASS"
+  },
+  {
+    "test": "Full event rejects second member",
+    "result": "PASS"
+  },
+  {
+    "test": "Event cancellation works",
+    "result": "PASS"
+  },
+  {
+    "test": "Admin event delete works",
+    "result": "PASS"
+  },
+  {
+    "test": "Invalid resource URL rejected",
+    "result": "PASS"
+  },
+  {
+    "test": "Resource creation works",
+    "result": "PASS"
+  },
+  {
+    "test": "Resource editing works",
+    "result": "PASS"
+  },
+  {
+    "test": "Resource deletion works",
+    "result": "PASS"
+  },
+  {
+    "test": "Admin moderation works",
+    "result": "PASS"
+  },
+  {
+    "test": "Suspension works",
+    "result": "PASS"
+  },
+  {
+    "test": "Suspended session blocked",
+    "result": "PASS"
+  },
+  {
+    "test": "Logout works",
+    "result": "PASS"
+  },
+  {
+    "test": "Logged out dashboard protected",
+    "result": "PASS"
+  },
+  {
+    "test": "Login throttling works",
+    "result": "PASS"
+  },
+  {
+    "test": "Installer cannot run through browser",
+    "result": "PASS"
+  }
+]

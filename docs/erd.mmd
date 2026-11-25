@@ -1,0 +1,77 @@
+erDiagram
+ users ||--o{ registrations : relates
+ events ||--o{ registrations : relates
+ users ||--o{ progress : relates
+ resources ||--o{ progress : relates
+ users ||--o{ topics : relates
+ users ||--o{ replies : relates
+ topics ||--o{ replies : relates
+ users ||--o{ mentorships : relates
+ users ||--o{ audit_log : relates
+ users ||--o{ activity_days : relates
+ users ||--o{ challenge_submissions : relates
+ challenges ||--o{ challenge_submissions : relates
+ users ||--o{ projects : relates
+ users ||--o{ project_feedback : relates
+ projects ||--o{ project_feedback : relates
+ users ||--o{ activity_feed : relates
+ users ||--o{ feed_reactions : relates
+ activity_feed ||--o{ feed_reactions : relates
+ users ||--o{ notifications : relates
+ users {
+ string key "PK id; UNIQUE email | hash, role, active, profile"
+ }
+ events {
+ string key "PK id | date, capacity, location"
+ }
+ registrations {
+ string key "PK/FK user_id + event_id | attendance"
+ }
+ resources {
+ string key "PK id | title, category, url"
+ }
+ progress {
+ string key "PK/FK user_id + resource_id | completion"
+ }
+ topics {
+ string key "PK id; FK user_id | title, body"
+ }
+ replies {
+ string key "PK id; FK user_id, topic_id | body"
+ }
+ mentorships {
+ string key "PK id; FK member_id, mentor_id | UNIQUE pair, status"
+ }
+ audit_log {
+ string key "PK id; FK user_id nullable | action, time"
+ }
+ login_attempts {
+ string key "PK email | attempts, last_attempt"
+ }
+ activity_days {
+ string key "PK/FK user_id + activity_date | dated practice"
+ }
+ challenges {
+ string key "PK id | prompt, difficulty, active"
+ }
+ challenge_submissions {
+ string key "PK id; FK user_id, challenge_id | UNIQUE user/date, review"
+ }
+ projects {
+ string key "PK id; FK user_id | description, url"
+ }
+ project_feedback {
+ string key "PK id; FK user_id, project_id | body"
+ }
+ activity_feed {
+ string key "PK id; FK user_id | kind, source_id, url"
+ }
+ feed_reactions {
+ string key "PK/FK user_id + feed_id | explicit cheer"
+ }
+ notifications {
+ string key "PK id; FK user_id | UNIQUE user/dedupe, read"
+ }
+ app_migrations {
+ string key "PK version | applied_at"
+ }

@@ -1,0 +1,4 @@
+Options -Indexes
+<FilesMatch "^(config.*\.php|.*\.(sql|md|bat|json|log))$">
+Require all denied
+</FilesMatch>

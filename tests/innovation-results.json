@@ -1,0 +1,170 @@
+[
+  {
+    "test": "Protected hub",
+    "result": "PASS"
+  },
+  {
+    "test": "Protected challenges",
+    "result": "PASS"
+  },
+  {
+    "test": "Protected showcase",
+    "result": "PASS"
+  },
+  {
+    "test": "Protected calendar",
+    "result": "PASS"
+  },
+  {
+    "test": "Protected search",
+    "result": "PASS"
+  },
+  {
+    "test": "Protected achievements",
+    "result": "PASS"
+  },
+  {
+    "test": "Protected notifications",
+    "result": "PASS"
+  },
+  {
+    "test": "Login Innovator",
+    "result": "PASS"
+  },
+  {
+    "test": "Login Reviewer",
+    "result": "PASS"
+  },
+  {
+    "test": "Innovation CSRF",
+    "result": "PASS"
+  },
+  {
+    "test": "Upgrade browser denied",
+    "result": "PASS"
+  },
+  {
+    "test": "Loads hub",
+    "result": "PASS"
+  },
+  {
+    "test": "Loads challenges",
+    "result": "PASS"
+  },
+  {
+    "test": "Loads showcase",
+    "result": "PASS"
+  },
+  {
+    "test": "Loads calendar",
+    "result": "PASS"
+  },
+  {
+    "test": "Loads search",
+    "result": "PASS"
+  },
+  {
+    "test": "Loads achievements",
+    "result": "PASS"
+  },
+  {
+    "test": "Loads notifications",
+    "result": "PASS"
+  },
+  {
+    "test": "Submission saved and escaped",
+    "result": "PASS"
+  },
+  {
+    "test": "Revise unapproved",
+    "result": "PASS"
+  },
+  {
+    "test": "Review admin-only",
+    "result": "PASS"
+  },
+  {
+    "test": "Manual review saved",
+    "result": "PASS"
+  },
+  {
+    "test": "Approved edit blocked",
+    "result": "PASS"
+  },
+  {
+    "test": "Review notification",
+    "result": "PASS"
+  },
+  {
+    "test": "No private review in other inbox",
+    "result": "PASS"
+  },
+  {
+    "test": "Project safe rendering",
+    "result": "PASS"
+  },
+  {
+    "test": "URL scheme rejected",
+    "result": "PASS"
+  },
+  {
+    "test": "Owner deletion enforced",
+    "result": "PASS"
+  },
+  {
+    "test": "Feedback saved",
+    "result": "PASS"
+  },
+  {
+    "test": "Owner notified",
+    "result": "PASS"
+  },
+  {
+    "test": "Real activity in feed",
+    "result": "PASS"
+  },
+  {
+    "test": "Reaction add",
+    "result": "PASS"
+  },
+  {
+    "test": "Reaction repeated safely",
+    "result": "PASS"
+  },
+  {
+    "test": "Reaction remove",
+    "result": "PASS"
+  },
+  {
+    "test": "Global search finds project",
+    "result": "PASS"
+  },
+  {
+    "test": "Search private exclusion",
+    "result": "PASS"
+  },
+  {
+    "test": "Search wildcard escaping",
+    "result": "PASS"
+  },
+  {
+    "test": "Invalid calendar input safe",
+    "result": "PASS"
+  },
+  {
+    "test": "Mark own inbox read",
+    "result": "PASS"
+  },
+  {
+    "test": "Project cascade delete",
+    "result": "PASS"
+  },
+  {
+    "test": "Deleted project absent feed",
+    "result": "PASS"
+  },
+  {
+    "test": "Deleted project 404",
+    "result": "PASS"
+  }
+]

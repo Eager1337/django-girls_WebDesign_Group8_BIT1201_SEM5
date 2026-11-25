@@ -1,0 +1,12 @@
+<?php require 'config.php';$u=require_login();require_innovations();page_start('Search',$u);heading('FIND YOUR NEXT CONNECTION','One search. More possibilities.','Search members, workshops, resources, discussions and community projects.');$q=trim((string)($_GET['q']??''));$q=mb_substr($q,0,100); ?>
+<form class="search" method="get"><input name="q" aria-label="Search everything" placeholder="Try PHP, design, a member or an event…" maxlength="100" value="<?=e($q)?>"><button class="button">Search</button></form>
+<?php if($q!==''):$like='%'.str_replace(['!','%','_'],['!!','!%','!_'],$q).'%';$groups=[
+ 'Members'=>['SELECT id,name title,interests description FROM users WHERE active=1 AND (name LIKE ? ESCAPE \'!\' OR interests LIKE ? ESCAPE \'!\') LIMIT 20','members.php?q='.urlencode($q)],
+ 'Workshops'=>['SELECT id,title,description FROM events WHERE title LIKE ? ESCAPE \'!\' OR description LIKE ? ESCAPE \'!\' LIMIT 20','events.php'],
+ 'Learning resources'=>['SELECT id,title,description FROM resources WHERE title LIKE ? ESCAPE \'!\' OR category LIKE ? ESCAPE \'!\' LIMIT 20','resources.php?q='.urlencode($q)],
+ 'Discussions'=>['SELECT t.id,t.title,t.body description FROM topics t JOIN users u ON u.id=t.user_id WHERE u.active=1 AND (t.title LIKE ? ESCAPE \'!\' OR t.body LIKE ? ESCAPE \'!\') LIMIT 20','community.php?topic='],
+ 'Projects'=>['SELECT p.id,p.title,p.description FROM projects p JOIN users u ON u.id=p.user_id WHERE u.active=1 AND (p.title LIKE ? ESCAPE \'!\' OR p.description LIKE ? ESCAPE \'!\') LIMIT 20','showcase.php?project=']
+];$count=0;foreach($groups as $label=>[$sql,$url]):$items=rows($sql,[$like,$like]);$count+=count($items);if(!$items)continue;?>
+<section class="card"><h2><?=e($label)?> <span class="badge"><?=count($items)?></span></h2><?php foreach($items as $item):?><a class="learning-row" href="<?=e($url.(in_array($label,['Discussions','Projects'])?$item['id']:''))?>"><h3><?=e($item['title'])?></h3><p><?=e(mb_substr($item['description'],0,180))?></p></a><?php endforeach;?></section>
+<?php endforeach;if(!$count)echo '<section class="card empty-state"><h2>No matches yet.</h2><p>Try a shorter term or a different learning interest.</p></section>';else echo '<p class="meta">Up to 20 matches per category. Private emails, notifications and challenge submissions are not searched.</p>';else:?>
+<section class="card empty-state"><h2>Follow your curiosity.</h2><p>Enter a name, topic or interest above to explore your community.</p></section><?php endif;page_end(); ?>
