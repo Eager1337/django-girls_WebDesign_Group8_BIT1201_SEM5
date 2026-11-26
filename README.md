@@ -87,7 +87,7 @@ Copies valid existing names/emails/password hashes to MySQL, skips duplicate ema
 - `tools/`: CLI-only installation, seeds, migration and recovery utilities.
 - `tests/`: repeatable integration tests, recorded results and test instructions.
 - `docs/`: A3 portfolio PDF/DOCX, screenshots, ERD, wireframes, technical notes, user guide and presentation script.
-- `presentation/`: editable 18-slide English PowerPoint, notes and generator scripts. Standard fade entrances/transitions and selected Morph transitions with fallback are included; verify playback in desktop PowerPoint.
+
 
 ## Security and deployment limits
 
